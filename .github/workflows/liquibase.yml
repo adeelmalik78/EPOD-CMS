@@ -43,7 +43,7 @@ jobs:
 
         
 
-          liquibase/liquibase --version
+          liquibase --version
           ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
           ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" updateSQL
           ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" update
