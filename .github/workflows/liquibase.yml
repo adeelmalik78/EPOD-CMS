@@ -29,10 +29,10 @@ jobs:
       - name: Run a install and run Liquibase
         run: |
           curl -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
-          unzip -o -d liquibase liquibase-${LB_VERSION}.zip
+          unzip -o -q -d liquibase liquibase-${LB_VERSION}.zip
           export PATH=`pwd`/liquibase:${PATH}
 
-          export LB_ARGS="--defaultsFile=${BASEDIR}/${GITHUB_REF}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
+          export LB_ARGS="--defaultsFile=${BASEDIR}/${GITHUB_REF_NAME}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
           cd ${BASEDIR}
 
           liquibase --version
