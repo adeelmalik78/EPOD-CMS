@@ -26,34 +26,31 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a set of commands using the runners shell
-      - name: Run a install and run Liquibaes
+      - name: Run a install and run Liquibase
         run: |
           curl -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
           unzip -o -d liquibase liquibase-${LB_VERSION}.zip
+
+          export LB_ARGS="--defaultsFile=${BASEDIR}/${BRANCH}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
+          cd ${PROJECT}/${BASEDIR}
+
           ./liquibase/liquibase --version
-          ./liquibase/liquibase --defaultsFile=./H2_project/liquibase.properties --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
-          ./liquibase/liquibase --defaultsFile=./H2_project/liquibase.properties --logLevel="${{ github.event.inputs.logLevel }}" updateSQL
-          ./liquibase/liquibase --defaultsFile=./H2_project/liquibase.properties --logLevel="${{ github.event.inputs.logLevel }}" update
+          ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
+          ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" updateSQL
+          ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" update
+          ./liquibase/liquibase ${LB_ARGS} history
           
-          echo "Tags: ${{ github.event.inputs.tags }}" 
-          
-          # Uncomment the line below to save changes.  Also, see environment variables under "env" and assign variables accordingly
-          #git config --global user.email $user.email; git config --global user.name $user.name; git config pull.rebase false; git add .; git commit -m $"message"; git push -u origin $branch
-          
-          #Uncomment the line below to generate a change log.
-          #./liquibase/liquibase --defaultsFile=./H2_project/liquibase.properties --changeLogFile=./H2_project/newChangeLog.h2.sql generateChangeLog
-          
-          #Uncomment the line below to run the rollbackCount 3 times
-          #./liquibase/liquibase --defaultsFile=./H2_project/liquibase.properties rollbackCount 3
-          #./liquibase/liquibase --defaultsFile=./H2_project/liquibase.properties status --verbose
-          
-          #Uncomment the line below to save changes.  Also, see environment variables under "env" and assign variables accordingly
-          #git config --global user.email $user.email; git config --global user.name $user.name; git config pull.rebase false; git add .; git commit -m $"message"; git push -u origin $branch
         env:
             user.email: "amalik@liquibase.com"
             user.name: "amalik"
             message: "<enter commit message>"
             branch: "dev"
-            LB_VERSION: "4.10.0"    
+            LB_VERSION: "4.10.0"
+            LIQUIBASE_PRO_LICENSE_KEY="ABwwGgQUjxKd8KQ1fa7HHI4P0Qsq3L22wOICAgQAjkB2jF6k42cSkAOMPPHgsp+e269W6eQeasbDCM6ks26gap8UcqOJnnGmC1REO0wyJmeH6kEg9RXXdsOLpwP0ieB0m+L0qX5V312gnWEs2srdn4y2MQa00f7rkvlIGFIITA5PytTg8VOaelFuwgOG3hl9qxIG3FPFLcvWd6LZvqt4+tSil8FJ6a8kfWPyrxG73ELEtWgGuIlH7+u9DKyMMWCGELuM3+YcHNDgfac3lri30+Dz0qB2xjm5VG5ikiiG/Hikvcbm4k/mJZEDimSRR7uMjLs/MFkcRqCCmhLUareSb2TWsfrOXaZbZ/1vNjbC5Mw3P6i4jxzzSDbVUMtQ8bZiPJsmF9QzOc180sytVZI1HkBTPUVx2GVmzCHYevTY7WSenIvzHGwv6KBspZL8ZHxRSU+2foW3y1aYmEDxRaxqUKplhidWE69InLidVKVbDN2XHpSsNZVOICoY5ggBN6HL6AazokZZr/ut35oVqvwBocsbVFDmh7l4OxlUHnQjxunywLL8leZztcOA9ZDVEGWzK+0KIUmMNYc3WRJYutMFgU10oGXpNA4PWjhlzNUzbOt2roNejsmqpY5n9S9aYQ0xzsevYnvx05tYF4E/blOhE41YWfEQKZnqXRj0MDVO7p1r+SCfCL/OvejvvcuHidU4zP0DwiY3gFZHTnNAjXk="
+            CHANGELOGFILE="masterchangelog.xml"
+            BASEDIR="src/sqlcode"    
+            CLASSPATH="postgresql-42.2.23.jar"
+            BRANCH="${GITHUB_REF##*/}"
+            
 
 
