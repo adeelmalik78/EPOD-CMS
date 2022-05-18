@@ -35,7 +35,7 @@ jobs:
           unzip -o -q -d liquibase liquibase-${LB_VERSION}.zip
           export PATH=`pwd`/liquibase:${PATH}
 
-          export LB_ARGS="--defaultsFile=${BASEDIR}/${GITHUB_REF_NAME}.liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
+          export LB_ARGS="--defaultsFile=${BASEDIR}/${GITHUB_REF_NAME}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
           cd ${BASEDIR}
 
           liquibase --version
