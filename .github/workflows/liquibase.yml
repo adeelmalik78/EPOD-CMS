@@ -34,7 +34,7 @@ jobs:
           export LB_ARGS="--defaultsFile=${BASEDIR}/${BRANCH}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
           cd ${BASEDIR}
 
-          ./liquibase/liquibase --version
+          liquibase/liquibase --version
           ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
           ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" updateSQL
           ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" update
