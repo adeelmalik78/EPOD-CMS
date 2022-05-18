@@ -47,7 +47,7 @@ jobs:
             CHANGELOGFILE: "masterchangelog.xml"
             BASEDIR: "src/sqlcode"    
             CLASSPATH: "postgresql-42.2.23.jar"
-            BRANCH: "${GITHUB_REF##*/}"
+            BRANCH: "${GITHUB_BASE_REF}"
             
 
 
