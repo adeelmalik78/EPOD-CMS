@@ -32,7 +32,7 @@ jobs:
           unzip -o -d liquibase liquibase-${LB_VERSION}.zip
           export PATH=`pwd`/liquibase:${PATH}
 
-          export LB_ARGS="--defaultsFile=${BASEDIR}/${BRANCH}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
+          export LB_ARGS="--defaultsFile=${BASEDIR}/${GITHUB_BASE_REF}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
           cd ${BASEDIR}
 
           liquibase --version
@@ -47,7 +47,7 @@ jobs:
             CHANGELOGFILE: "masterchangelog.xml"
             BASEDIR: "src/sqlcode"    
             CLASSPATH: "postgresql-42.2.23.jar"
-            BRANCH: "${GITHUB_BASE_REF}"
+
             
 
 
