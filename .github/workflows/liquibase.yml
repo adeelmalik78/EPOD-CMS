@@ -37,12 +37,12 @@ jobs:
 
           cd ${BASEDIR}
 
-          export LB_ARGS="--defaultsFile=${GITHUB_REF_NAME}.liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
+          export LB_ARGS="--defaultsFile=${GITHUB_REF_NAME}.liquibase.properties --changelogFile=${CHANGELOGFILE} --classpath=${CLASSPATH}"
 
           liquibase --version
-          liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
-          liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" updateSQL
-          # liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" update
+          liquibase ${LB_ARGS} status --verbose
+          liquibase ${LB_ARGS} updateSQL
+          # liquibase ${LB_ARGS} update
           liquibase ${LB_ARGS} history
           
         env:
