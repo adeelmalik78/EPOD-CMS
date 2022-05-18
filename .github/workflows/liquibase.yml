@@ -30,24 +30,16 @@ jobs:
         run: |
           curl -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
           unzip -o -d liquibase liquibase-${LB_VERSION}.zip
-
-          pwd
-          ls -alh
-          ls -alh liquibase
-
           export PATH=`pwd`/liquibase:${PATH}
-          echo PATH=${PATH}
 
           export LB_ARGS="--defaultsFile=${BASEDIR}/${BRANCH}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
           cd ${BASEDIR}
 
-        
-
           liquibase --version
-          ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
-          ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" updateSQL
-          ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" update
-          ./liquibase/liquibase ${LB_ARGS} history
+          liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
+          liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" updateSQL
+          # liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" update
+          liquibase ${LB_ARGS} history
           
         env:
             LB_VERSION: "4.10.0"
