@@ -1,0 +1,90 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="amalik" id="89">
+        <modifyDataType columnName="address1" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="90">
+        <modifyDataType columnName="address2" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="91">
+        <modifyDataType columnName="address3" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="92">
+        <modifyDataType columnName="country" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="93">
+        <modifyDataType columnName="currency" newDataType="public.citext" tableName="Auctions"/>
+    </changeSet>
+    <changeSet author="amalik" id="94">
+        <modifyDataType columnName="defaultCurrency" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="95">
+        <modifyDataType columnName="description" newDataType="public.citext" tableName="Auctions"/>
+    </changeSet>
+    <changeSet author="amalik" id="96">
+        <modifyDataType columnName="firstName" newDataType="public.citext" tableName="UserRegistrations"/>
+    </changeSet>
+    <changeSet author="amalik" id="97">
+        <modifyDataType columnName="location" newDataType="public.citext" tableName="UserRegistrations"/>
+    </changeSet>
+    <changeSet author="amalik" id="98">
+        <modifyDataType columnName="login" newDataType="public.citext" tableName="UserRegistrations"/>
+    </changeSet>
+    <changeSet author="amalik" id="99">
+        <modifyDataType columnName="name" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="100">
+        <modifyDataType columnName="name" newDataType="public.citext" tableName="AuctionVideo"/>
+    </changeSet>
+    <changeSet author="amalik" id="101">
+        <modifyDataType columnName="name" newDataType="public.citext" tableName="TrustLevels"/>
+    </changeSet>
+    <changeSet author="amalik" id="102">
+        <modifyDataType columnName="platformName" newDataType="public.citext" tableName="Platforms"/>
+    </changeSet>
+    <changeSet author="amalik" id="103">
+        <modifyDataType columnName="platformSN" newDataType="public.citext" tableName="Platforms"/>
+    </changeSet>
+    <changeSet author="amalik" id="104">
+        <modifyDataType columnName="postcode" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="105">
+        <modifyDataType columnName="primaryEmail" newDataType="public.citext" tableName="UserRegistrations"/>
+    </changeSet>
+    <changeSet author="amalik" id="106">
+        <modifyDataType columnName="salutation" newDataType="public.citext" tableName="UserRegistrations"/>
+    </changeSet>
+    <changeSet author="amalik" id="107">
+        <modifyDataType columnName="secondName" newDataType="public.citext" tableName="UserRegistrations"/>
+    </changeSet>
+    <changeSet author="amalik" id="108">
+        <modifyDataType columnName="shortName" newDataType="public.citext" tableName="AuctionHouses"/>
+    </changeSet>
+    <changeSet author="amalik" id="109">
+        <modifyDataType columnName="specialist" newDataType="public.citext" tableName="Auctions"/>
+    </changeSet>
+    <changeSet author="amalik" id="110">
+        <modifyDataType columnName="specialistEmail" newDataType="public.citext" tableName="Auctions"/>
+    </changeSet>
+    <changeSet author="amalik" id="111">
+        <modifyDataType columnName="table" newDataType="public.citext" tableName="KeyMap"/>
+    </changeSet>
+    <changeSet author="amalik" id="112">
+        <modifyDataType columnName="text" newDataType="public.citext" tableName="Messages"/>
+    </changeSet>
+    <changeSet author="amalik" id="113">
+        <modifyDataType columnName="text" newDataType="public.citext" tableName="PresetMessages"/>
+    </changeSet>
+    <changeSet author="amalik" id="114">
+        <modifyDataType columnName="theirID" newDataType="public.citext" tableName="KeyMap"/>
+    </changeSet>
+    <changeSet author="amalik" id="115">
+        <modifyDataType columnName="tickerMessage" newDataType="public.citext" tableName="Auctions"/>
+    </changeSet>
+    <changeSet author="amalik" id="116">
+        <modifyDataType columnName="title" newDataType="public.citext" tableName="Auctions"/>
+    </changeSet>
+    <changeSet author="amalik" id="117">
+        <modifyDataType columnName="userLoginName" newDataType="public.citext" tableName="Bids"/>
+    </changeSet>
+</databaseChangeLog>

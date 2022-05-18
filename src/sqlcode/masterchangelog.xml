@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
+        http://www.liquibase.org/xml/ns/pro
+        http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd ">
+
+
+    <!-- <changeSet author="wamk" id="20210909102601">
+        <preConditions onFail="MARK_RAN">
+            <dbms type="postgresql" />
+        </preConditions>  
+        <sqlFile path="027-rename-psps.sql" relativeToChangelogFile="true" endDelimiter="/" dbms="PostgreSQL" encoding="utf8" splitStatements="true"/>
+    </changeSet> -->
+
+   <includeAll path="main/" />
+   <includeAll path="sql/" />
+
+    <!-- <include file="main/100_ddl/01_create_table_without_precondition.sql" relativeToChangelogFile="true" /> -->
+
+    <!-- <includeAll path="sql/main/100_ddl/" /> -->
+    <!-- <includeAll path="sql/main/200_dml/" /> -->
+    <!-- <includeAll path="main/DB_XML/" /> -->
+
+<!-- 
+<changeSet author="amalik" id="1">
+     <sqlFile path="sql/table_usergroup.sql"
+        relativeToChangelogFile="true"
+        encoding="UTF-8"/>
+    <rollback>
+        <sqlFile path="sql/table_usergroup-rollback.sql"
+            relativeToChangelogFile="true"
+            encoding="UTF-8"/>
+    </rollback>
+</changeSet> -->
+
+    
+<!-- <changeSet author="amalik" id="1">
+     <sqlFile path="sql/table2.sql"
+        relativeToChangelogFile="true"
+        encoding="UTF-8"/>
+</changeSet>
+     -->
+
+</databaseChangeLog>

@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="amalik" id="56" >
+        <renameColumn  newColumnName="auctionStartDate"
+                       oldColumnName="auctionDate"
+                       tableName="Auctions"/>
+    </changeSet>
+    <changeSet author="amalik" id="57">
+        <addColumn tableName="Auctions">
+            <column name="auctionEndDate" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="amalik" id="58">
+        <sql dbms="postgresql"
+             splitStatements="true"
+             stripComments="true">
+            UPDATE "Auctions"
+            SET "auctionEndDate" = "auctionStartDate"
+            WHERE "auctionEndDate" IS NULL;
+            <comment>Fix up auctionEndDate to not be null</comment>
+        </sql>
+    </changeSet>
+    <changeSet author="amalik" id="59">
+        <addNotNullConstraint  tableName="Auctions" columnName="auctionEndDate"/>
+    </changeSet>
+</databaseChangeLog>

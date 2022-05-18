@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="amalik" id="120">
+        <addColumn tableName="SaleLots">
+            <column name="lotMainIndex" type="int4">
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="amalik" id="121">
+        <addColumn tableName="SaleLots">
+            <column name="lotSubIndex" type="public.citext"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="amalik" id="122">
+        <sql dbms="postgresql"
+             splitStatements="true"
+             stripComments="true">
+            UPDATE "SaleLots" AS sl
+            SET "lotMainIndex"=CAST(substring("lotNumber",'([0-9]+)') AS INTEGER), "lotSubIndex" = substring("lotNumber",'([A-Za-z]+)')
+            WHERE true;
+            <comment>Update lots to fit new structure</comment>
+        </sql>
+    </changeSet>
+
+    <changeSet author="amalik" id="123">
+        <addNotNullConstraint columnDataType="public.citext" columnName="lotMainIndex" tableName="SaleLots" validate="true"/>
+    </changeSet>
+
+<changeSet author="richard (generated)" id="1642337233821-5">
+        <pro:createFunction functionName="insert_indexes">CREATE OR REPLACE FUNCTION rldev.insert_indexes()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+                BEGIN
+                  UPDATE rldev."SaleLots"
+                  SET "lotMainIndex" = CAST(substring(NEW."lotNumber", '([0-9]+)') AS INTEGER), "lotSubIndex" = substring(NEW."lotNumber", '([A-Za-z]+)') WHERE "saleLotID" = NEW."saleLotID";
+                  RETURN NEW;
+                END; $function$
+        </pro:createFunction>
+    </changeSet>
+</databaseChangeLog>
