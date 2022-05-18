@@ -31,12 +31,17 @@ jobs:
           curl -L https://github.com/liquibase/liquibase/releases/download/v${LB_VERSION}/liquibase-${LB_VERSION}.zip --output liquibase-${LB_VERSION}.zip
           unzip -o -d liquibase liquibase-${LB_VERSION}.zip
 
-          export LB_ARGS="--defaultsFile=${BASEDIR}/${BRANCH}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
-          cd ${BASEDIR}
-
           pwd
           ls -alh
           ls -alh liquibase
+
+          export PATH=`pwd`/liquibase:${PATH}
+          echo PATH=${PATH}
+
+          export LB_ARGS="--defaultsFile=${BASEDIR}/${BRANCH}/liquibase.properties --changelogFile=${BASEDIR}/${CHANGELOGFILE} --classpath=${BASEDIR}/${CLASSPATH}"
+          cd ${BASEDIR}
+
+        
 
           liquibase/liquibase --version
           ./liquibase/liquibase ${LB_ARGS} --logLevel="${{ github.event.inputs.logLevel }}" status --verbose
