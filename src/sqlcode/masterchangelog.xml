@@ -16,7 +16,7 @@
         <sqlFile path="027-rename-psps.sql" relativeToChangelogFile="true" endDelimiter="/" dbms="PostgreSQL" encoding="utf8" splitStatements="true"/>
     </changeSet> -->
 
-   <includeAll path="main/" />
+   <!-- <includeAll path="main/" /> -->
    <includeAll path="sql/" />
 
     <!-- <include file="main/100_ddl/01_create_table_without_precondition.sql" relativeToChangelogFile="true" /> -->
