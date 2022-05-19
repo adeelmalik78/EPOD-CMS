@@ -6,3 +6,10 @@ CREATE TABLE table2 (
     "name" varchar(200) NOT null,
     PRIMARY KEY ("id_user_group")
 );
+
+--changeset amalik:table3
+CREATE TABLE table3 (
+    "id_user_group" bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
+    "name" varchar(200) NOT null,
+    PRIMARY KEY ("id_user_group")
+);
