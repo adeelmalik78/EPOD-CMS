@@ -42,7 +42,7 @@ jobs:
           liquibase --version
           liquibase ${LB_ARGS} status --verbose
           liquibase ${LB_ARGS} updateSQL
-          # liquibase ${LB_ARGS} update
+          liquibase ${LB_ARGS} update
           liquibase ${LB_ARGS} history
           
         env:
