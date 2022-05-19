@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset amalik:insert_index runOnChange:true
 CREATE OR REPLACE FUNCTION insert_indexes()
  RETURNS trigger
  LANGUAGE plpgsql
