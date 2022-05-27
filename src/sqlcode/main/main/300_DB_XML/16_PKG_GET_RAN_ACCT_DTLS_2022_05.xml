@@ -1,0 +1,29 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+    <changeSet author="adeel" id="PKG_GET_RAN_ACCT_DTLS_2022_05_pks" runAlways="true" runOnChange="true">
+        <sqlFile endDelimiter="/"
+            path="../../main/PLS/PKG_GET_RAN_ACCT_DTLS_2022_05_pks.sql"
+            relativeToChangelogFile="true"
+            splitStatements="true"
+            stripComments="true"
+            />
+    </changeSet>
+
+
+    <!-- <changeSet author="adeel" id="PKG_GET_RAN_ACCT_DTLS_2022_05_pkb" runAlways="true">
+        <sqlFile endDelimiter="/"
+            path="../../main/PLS/PKG_GET_RAN_ACCT_DTLS_2022_05_pkb.sql"
+            relativeToChangelogFile="true"
+            splitStatements="true"
+            stripComments="true"
+            />
+    </changeSet> -->
+
+
+
+
+</databaseChangeLog>
