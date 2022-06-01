@@ -53,10 +53,11 @@ jobs:
             LIQUIBASE_COMMAND_CHANGELOG_FILE: "masterchangelog.xml"
             BASEDIR: "src/sqlcode"    
             LIQUIBASE_CLASSPATH: "postgresql-42.2.23.jar"
-            LIQUIBASE_HUB_MODE: "off"
             LIQUIBASE_COMMAND_URL: ${{ secrets.DB_URL }}
             LIQUIBASE_COMMAND_USERNAME: ${{ secrets.DB_USERNAME }}
             LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.DB_PASSWORD }}
             LIQUIBASE_PRO_LICENSE_KEY: ${{ secrets.LIQUIBASE_KEY }}
+            LIQUIBASE_HUB_API_KEY: "LM5YVxgFWNdadHmGMKdYHii-QLptWxLa4qXQQIw-ec4"
+            LIQUIBASE_HUB_MODE: "all"            
 
 
