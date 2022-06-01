@@ -39,8 +39,8 @@ jobs:
 
           # Using GitHub actions instead of defaultsFile
           # export LB_ARGS="--defaultsFile=${GITHUB_REF_NAME}.liquibase.properties --changelogFile=${CHANGELOGFILE} --classpath=${CLASSPATH}"
-          export LB_ARGS="--changelogFile=${CHANGELOGFILE} --classpath=${CLASSPATH}"
 
+          echo LIQUIBASE_COMMAND_URL=${LIQUIBASE_COMMAND_URL}
           liquibase --version
           liquibase ${LB_ARGS} status --verbose
           liquibase ${LB_ARGS} updateSQL
@@ -49,9 +49,9 @@ jobs:
           
         env:
             LB_VERSION: "4.11.0"
-            CHANGELOGFILE: "masterchangelog.xml"
+            LIQUIBASE_COMMAND_CHANGELOG_FILE: "masterchangelog.xml"
             BASEDIR: "src/sqlcode"    
-            CLASSPATH: "postgresql-42.2.23.jar"
+            LIQUIBASE_CLASSPATH: "postgresql-42.2.23.jar"
             LIQUIBASE_HUB_MODE: "off"
 
             
