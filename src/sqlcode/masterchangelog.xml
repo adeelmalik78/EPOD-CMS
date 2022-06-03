@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
         http://www.liquibase.org/xml/ns/pro
-        http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd " changeLogId="60127d98-39ec-44fe-adef-e2d6fd3508a1">
+        http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd "  changeLogId="4610b66b-22a4-41cf-90fb-4dd80f33212b">
 
 <!-- Deploy scripts from "main/100_ddl" directory -->
    <includeAll path="main/100_ddl" />
