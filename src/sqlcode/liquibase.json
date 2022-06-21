@@ -1,0 +1,7 @@
+{
+ "dependencies": [
+  {
+   "liquibase-data": "v0.0.7"
+  }
+ ]
+}

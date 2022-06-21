@@ -61,7 +61,7 @@ agent any
           liquibase $LB_ARGS updateSQL
 	  
           #liquibase $LB_ARGS tag 123_START
-          #liquibase $LB_ARGS update
+          #liquibase $LB_ARGS update --labels=project1
           #liquibase $LB_ARGS tag 123_END
 	
           liquibase $LB_ARGS history

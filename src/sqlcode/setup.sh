@@ -1,0 +1,21 @@
+export LIQUIBASE_HOME=~/Desktop/LiquibaseHub/liquibase-4.11.0
+export LIQUIBASE_COMMAND_URL=jdbc:postgresql://localhost:5432/postgres
+export LIQUIBASE_COMMAND_USERNAME=postgres
+export LIQUIBASE_COMMAND_PASSWORD=secret
+export LIQUIBASE_COMMAND_CHANGELOG_FILE=masterchangelog.xml
+export LIQUIBASE_PRO_LICENSE_KEY=ABwwGgQUp6l3D3Do5GgK++KmJf+TpB4zu+kCAgQAg/s1gXqweWYIKrByfYsW8SsFG763I64VUtyMWNsLGyF+ptrzpsqFhG3pmqgEUeuGfXvW2S4BwGrd1xy/Tj3dWqXJ6h9DHUdmCcdafXkLNYqMr/X0QCviBMaa8ul2kq1gWQV6zKKdeLb2DaePtjhOutnMJzxV9+0MCivTXHhMzTJJu0OvuOr4ofkBn1b3Tv3awZ3/PjmAaGdYt0JEbqLN04ztqch/vL3BkXcrVQuc3ThEq2FMTgapjI7IpoeCP//64dR4rrYrqwMiBDrl71yBrBE11b2s73oybpCDYkW1CYAeX1DcvC/+Gt040tUO27Z0iVuZxJiKek6drCp3j59kYyLKNEg5KI2ZIm71B7gL8BgRsO+7NJhRerva7LbMzYLIMgPn1En4xkeoHKbQipsh2yf43/kVazmSqYSiFl8gMj3+G4Tp71m9wxr3EvO98CwsYcrAPLyEGZm/lZ3q/RGFCatmj3Nn/Kh0+yk5CPV30bdJjGPtiC0UJbIcqlQY5cbibqEEFRV2zWnItktjWeKBAEX09rJadTLRhFrmZAkooina8l9HHR05i1ee9E5z57a/jwKjpTLbAi/QzFCqkRizbwwSKnjLatO3/VmjIegopManUuwoDHfc6PCepVVYCsYiofwDqQ3jwYBg5gtVEcmFsikxA3QgGxEI6Z/bzeUFFLg=
+# export LIQUIBASE_HUB_MODE=off
+# export LIQUIBASE_HUB_API_KEY=02HcmDJzX_tg0YfTL9ecAE2M0PNbdnjbiNV1dWgbphU
+
+
+
+liquibase checks show
+liquibase checks bulk-set --disable
+liquibase checks delete --check-name=SqlGrantAlterWarn
+liquibase checks enable --check-name=SqlGrantSpecificPrivsWarn
+SqlGrantAlterWarn
+2
+"ALTER SESSION","ALTER SYSTEM",EXP_FULL_DATABASE,IMP_FULL_DATABASE,"CREATE ANY TABLE","DROP ANY TABLE","ALTER ANY TABLE","SELECT ANY TABLE","COMMENT ANY TABLE","EXECUTE ANY PROCEDURE"
+
+
+liquibase data run --name=myrepos --env=POSTGRES_PASSWORD=secret --image=postgres
