@@ -53,7 +53,7 @@ agent any
       steps {
         sh '''
           { set +x; } 2>/dev/null
-          export LB_ARGS="--defaultsFile=${ENVIRONMENT}/liquibase.properties --changelogFile=${CHANGELOGFILE} --classpath=${CLASSPATH}"
+          export LB_ARGS="--defaultsFile=${ENVIRONMENT}.liquibase.properties --changelogFile=${CHANGELOGFILE} --classpath=${CLASSPATH}"
           cd ${PROJECT}/${BASEDIR}
           liquibase --version
           liquibase $LB_ARGS status --verbose
