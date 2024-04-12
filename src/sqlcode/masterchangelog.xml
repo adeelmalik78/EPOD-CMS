@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
         http://www.liquibase.org/xml/ns/pro
-        http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd ">
+        http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd " >
 
    <includeAll path="main/100_ddl" />
    <includeAll path="main/200_dml" />
@@ -16,11 +16,12 @@
    <!-- <includeAll path="main/Versions" /> -->
 
 
-    <!-- <changeSet author="wamk" id="20210909102601">
-        <preConditions onFail="MARK_RAN">
-            <dbms type="postgresql" />
-        </preConditions>  
-        <sqlFile path="027-rename-psps.sql" relativeToChangelogFile="true" endDelimiter="/" dbms="PostgreSQL" encoding="utf8" splitStatements="true"/>
+    <!-- <changeSet author="wamk" id="1">
+        <sqlFile path="main/PLS/PKG_GET_RAN_ACCT_DTLS_2022_05_pks.sql" relativeToChangelogFile="true" endDelimiter="/" stripComments="false" splitStatements="true"/>
+    </changeSet>
+
+    <changeSet author="wamk" id="2">
+        <sqlFile path="main/PLS/PKG_GET_RAN_ACCT_DTLS_2022_05_pkb.sql" relativeToChangelogFile="true" endDelimiter="/" stripComments="false" splitStatements="true"/>
     </changeSet> -->
 
     <!-- <include file="main/100_ddl/01_create_table_without_precondition.sql" relativeToChangelogFile="true" /> -->
