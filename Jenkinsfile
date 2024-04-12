@@ -13,7 +13,7 @@ agent any
     CLASSPATH="${params.CLASSPATH}"
     BASEDIR="${params.BASEDIR}"
     PATH="/opt/liquibase/liquibase-4.26.0:$PATH"
-    LIQUIBASE_PRO_LICENSE_KEY="<Your Liquibase Pro license key>"
+    // LIQUIBASE_PRO_LICENSE_KEY="<Your Liquibase Pro license key>"
 
   }
   stages {
