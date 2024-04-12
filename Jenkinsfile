@@ -60,9 +60,9 @@ agent any
           #liquibase --url=${URL} --password=${PASSWORD} --contexts=$ENVIRONMENT_STEP rollbackCount 2
           liquibase $LB_ARGS updateSQL
 	  
-          #liquibase $LB_ARGS tag 123_START
-          #liquibase $LB_ARGS update
-          #liquibase $LB_ARGS tag 123_END
+          liquibase $LB_ARGS tag ${BUILD_NUMBER}_START
+          liquibase $LB_ARGS update
+          liquibase $LB_ARGS tag ${BUILD_NUMBER}_END
 	
           liquibase $LB_ARGS history
 	  
