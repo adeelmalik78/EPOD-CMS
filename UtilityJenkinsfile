@@ -12,7 +12,7 @@ agent any
     CHANGELOGFILE="${params.CHANGELOGFILE}"
     CLASSPATH="${params.CLASSPATH}"
     BASEDIR="${params.BASEDIR}"
-    PATH="/opt/liquibase/liquibase-4.8.0:$PATH"
+    PATH="/opt/liquibase/liquibase-4.26.0:$PATH"
     LIQUIBASE_PRO_LICENSE_KEY="<Your Liquibase Pro license key>"
     LB_COMMAND="${params.LB_COMMAND}"
   }
