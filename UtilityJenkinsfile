@@ -13,7 +13,6 @@ agent any
     CLASSPATH="${params.CLASSPATH}"
     BASEDIR="${params.BASEDIR}"
     PATH="/opt/liquibase/liquibase-4.26.0:$PATH"
-    LIQUIBASE_PRO_LICENSE_KEY="<Your Liquibase Pro license key>"
     LB_COMMAND="${params.LB_COMMAND}"
   }
   stages {
@@ -53,7 +52,7 @@ agent any
       steps {
        sh '''
           { set +x; } 2>/dev/null
-          export LB_ARGS="--defaultsFile=${ENVIRONMENT}/liquibase.properties --changelogFile=${CHANGELOGFILE} --classpath=${CLASSPATH}"
+          export LB_ARGS="--defaultsFile=${ENVIRONMENT}.liquibase.properties --changelogFile=${CHANGELOGFILE} --classpath=${CLASSPATH}"
           liquibase --version
           #liquibase ${LB_ARGS} status --verbose
 
