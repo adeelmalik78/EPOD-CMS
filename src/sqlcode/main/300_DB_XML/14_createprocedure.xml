@@ -1,0 +1,20 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="DHRUV" id="20.11.11" runOnChange="true">
+        <sqlFile 
+                dbms="oracle"
+                encoding="utf8"
+                endDelimiter="/"
+                path="../../main/PLS/createProcedure2.sql"
+                relativeToChangelogFile="true"
+        /> 
+        <rollback>
+            <sql 
+                dbms="oracle"
+                encoding="utf8"> drop table createProcedure2 </sql>
+        </rollback>
+    </changeSet> 
+</databaseChangeLog>

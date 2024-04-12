@@ -6,7 +6,22 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
         http://www.liquibase.org/xml/ns/pro
-        http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd ">
+        http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd "  changeLogId="4610b66b-22a4-41cf-90fb-4dd80f33212b">
+
+<!-- Deploy scripts from "main/100_ddl" directory -->
+   <includeAll path="main/100_ddl" />
+
+<!-- Deploy scripts from "main/200_dml" directory -->
+   <includeAll path="main/200_dml" />
+
+<!-- Deploy scripts from "main/300_DB_XML" directory -->
+   <!-- <includeAll path="main/300_DB_XML" /> -->
+
+<!-- Deploy scripts from "main/PLS" directory -->
+   <!-- <includeAll path="main/PLS" /> -->
+
+<!-- Deploy scripts from "main/Versions" directory -->
+   <!-- <includeAll path="main/Versions" /> -->
 
 
     <!-- <changeSet author="wamk" id="20210909102601">
@@ -16,14 +31,7 @@
         <sqlFile path="027-rename-psps.sql" relativeToChangelogFile="true" endDelimiter="/" dbms="PostgreSQL" encoding="utf8" splitStatements="true"/>
     </changeSet> -->
 
-   <includeAll path="main/" />
-   <includeAll path="sql/" />
-
     <!-- <include file="main/100_ddl/01_create_table_without_precondition.sql" relativeToChangelogFile="true" /> -->
-
-    <!-- <includeAll path="sql/main/100_ddl/" /> -->
-    <!-- <includeAll path="sql/main/200_dml/" /> -->
-    <!-- <includeAll path="main/DB_XML/" /> -->
 
 <!-- 
 <changeSet author="amalik" id="1">
